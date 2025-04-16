@@ -8,3 +8,9 @@
     - _default.yml
   tags:
     - configuration
+
+- name: Install Quarto
+  ansible.builtin.include_tasks: ./install-quarto.yml
+  loop: "{{ quarto_versions }}"
+  loop_control:
+    loop_var: quarto_version

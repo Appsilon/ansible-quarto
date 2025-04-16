@@ -1,2 +1,4 @@
 # defaults file
 ---
+quarto_versions:
+- "1.5.57"
