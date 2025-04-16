@@ -22,7 +22,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip install ansible-lint[community,yamllint]
+        run: pip install -r requirements.txt
 
       - name: Lint code
         run: |
@@ -57,7 +57,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip install 'ansible${{ matrix.ansible-version }}' molecule[docker] docker
+        run: pip install -r requirements.txt
 
       - name: Run Molecule tests
         run: |
