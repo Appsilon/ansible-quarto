@@ -1,6 +1,6 @@
 # post test file
 ---
-- name: Verify
+- name: Verify  # noqa: no-changed-when
   ansible.builtin.command:
     cmd: "/opt/quarto/lib/{{ item }}/bin/quarto check"
   loop: "{{ quarto_versions }}"
