@@ -1,6 +1,6 @@
 ---
 name: CI
-'on':
+on:
   pull_request:
   push:
     branches:
@@ -9,7 +9,6 @@ name: CI
     - cron: '30 1 * * 3'
 
 jobs:
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -43,7 +42,8 @@ jobs:
       matrix:
         include:
           - distro: ubuntu2004
-            ansible-version: '>=2.11.5'
+          - distro: ubuntu2204
+          - distro: ubuntu2404
 
     steps:
       - name: Check out the codebase
