@@ -11,3 +11,4 @@ parseable: true
 verbosity: 1
 skip_list:
   - name[casing]  # Rule for checking task and play names.
+  - role-name[path] # Ignore using path to the role like "../../"
