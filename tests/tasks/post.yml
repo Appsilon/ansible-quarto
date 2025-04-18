@@ -2,5 +2,5 @@
 ---
 - name: Verify  # noqa: no-changed-when
   ansible.builtin.command:
-    cmd: "/opt/quarto/lib/{{ item }}/bin/quarto check"
+    cmd: "{{ quarto_install_root_dir }}/{{ item }}/bin/quarto check"
   loop: "{{ quarto_versions }}"

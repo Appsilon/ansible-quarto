@@ -12,6 +12,7 @@ The following variables are available for this role:
 | Variable                | Required | Default   | Choices | Comments                                       |
 |-------------------------|----------|-----------|---------|------------------------------------------------|
 | quarto_versions         | no       | ["1.6.43"] |         | List of Quarto versions to install             |
+| quarto_install_root_dir | no       | /opt/quarto |        | Root directory where Quarto will be installed  |
 
 ## Example Playbook
 
@@ -19,6 +20,19 @@ The following variables are available for this role:
 - hosts: all
   roles:
     - appsilon.quarto
+```
+
+Or with custom variables:
+
+```yaml
+- hosts: all
+  roles:
+    - role: appsilon.quarto
+      vars:
+        quarto_versions:
+          - "1.6.43"
+          - "1.5.29"
+        quarto_install_root_dir: /usr/local/quarto
 ```
 
 ## Development
