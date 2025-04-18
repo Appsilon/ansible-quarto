@@ -2,6 +2,8 @@
 - name: Verify
   hosts: all
   pre_tasks:
+    - name: include defaults
+      include_vars: "{{ playbook_dir }}/../../defaults/main.yml"
     - name: include vars
       include_vars: "{{ playbook_dir }}/../../tests/vars/main.yml"
   tasks:
