@@ -13,6 +13,7 @@ The following variables are available for this role:
 |-------------------------|----------|-----------|---------|------------------------------------------------|
 | quarto_versions         | no       | ["1.6.43"] |         | List of Quarto versions to install             |
 | quarto_install_root_dir | no       | /opt/quarto |        | Root directory where Quarto will be installed  |
+| quarto_default_version  | no       | First version in quarto_versions list | | When set, creates a symlink at /usr/local/bin/quarto pointing to this version |
 
 ## Example Playbook
 

@@ -4,3 +4,18 @@
   ansible.builtin.command:
     cmd: "{{ quarto_install_root_dir }}/{{ item }}/bin/quarto check"
   loop: "{{ quarto_versions }}"
+
+- name: Check if default Quarto symlink exists
+  ansible.builtin.stat:
+    path: /usr/local/bin/quarto
+  register: quarto_symlink
+
+- name: Verify symlink points to default version
+  ansible.builtin.assert:
+    that:
+      - quarto_symlink.stat.islnk is defined
+      - quarto_symlink.stat.islnk
+      - quarto_symlink.stat.lnk_source is defined
+      - quarto_symlink.stat.lnk_source == quarto_install_root_dir + '/' + quarto_default_version + '/bin/quarto'
+    fail_msg: "Default Quarto symlink is not properly configured"
+  when: quarto_default_version | default('') | length > 0
