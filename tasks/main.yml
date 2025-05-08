@@ -14,3 +14,10 @@
   loop: "{{ quarto_versions }}"
   loop_control:
     loop_var: quarto_version
+
+- name: Create symlink for default Quarto version
+  ansible.builtin.file:
+    src: "{{ quarto_install_root_dir }}/{{ quarto_default_version }}/bin/quarto"
+    dest: "/usr/local/bin/quarto"
+    state: link
+  when: quarto_default_version | default('') | length > 0
