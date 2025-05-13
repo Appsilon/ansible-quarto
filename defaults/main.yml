@@ -3,3 +3,4 @@
 quarto_versions:
 - "1.6.43"
 quarto_install_root_dir: /opt/quarto
+quarto_default_version: "{{ quarto_versions | first }}"
